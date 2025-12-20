@@ -1,5 +1,11 @@
 streamlit
 pandas
-joblib
 numpy
+joblib
 scikit-learn
+xgboost
+lightgbm
+catboost
+imbalanced-learn
+shap
+matplotlib
