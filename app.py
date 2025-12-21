@@ -34,7 +34,7 @@ st.sidebar.header("Input Parameters")
 age = st.sidebar.slider("Age (years)", 18, 100, 65)
 sbp = st.sidebar.slider("Systolic Blood Pressure (mmHg)", 90, 180, 120)
 asitnsir = st.sidebar.slider("ASITN/SIR Score", 0, 4, 2)
-baselinenihss = st.sidebar.slider("Baseline NIHSS", 0, 30, 5)
+baselinenihss = st.sidebar.slider("Baseline NIHSS", 0, 40, 5)
 
 occlusion_site = st.sidebar.selectbox(
     "Occlusion Site",
@@ -138,4 +138,5 @@ with tab2:
         st.image("ROC_best_model.png", caption="ROC Curve")
     else:
         st.info("ROC plot not found.")
+
 
