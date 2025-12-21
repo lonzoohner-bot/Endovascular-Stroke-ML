@@ -65,11 +65,19 @@ user_input = pd.DataFrame({
 # 确保特征对齐
 user_input = user_input[final_features]
 
+# 预测计算（注意：你的标签定义 0=良好，1=不良）
 # ==============================
-# 预测计算
-# ==============================
-prob = model.predict_proba(user_input)[0, 1]
-pred = model.predict(user_input)[0]
+proba = model.predict_proba(user_input)[0]
+classes = list(getattr(model, "classes_", [0, 1]))
+
+# 更稳：按 classes_ 找到对应列（避免列顺序变化）
+idx_good = classes.index(0)  # outcome=0 => good (mRS 0–3)
+idx_poor = classes.index(1)  # outcome=1 => poor (mRS 4–6)
+
+prob_good = float(proba[idx_good])
+prob_poor = float(proba[idx_poor])
+
+pred = model.predict(user_input)[0]  # 0=good, 1=poor
 
 # ==============================
 # 结果展示
@@ -80,32 +88,36 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     st.metric(
-        label="Prob. of Good Outcome",
-        value=f"{prob:.2%}"
+        label="Prob. of Good Outcome (mRS 0–3)",
+        value=f"{prob_good:.2%}"
     )
 
 with col2:
-    if pred == 1:
+    if pred == 0:
         st.success("Result: Good Recovery")
     else:
         st.error("Result: Poor Recovery")
 
-# --- 核心：风险分层部分 ---
+# --- 风险分层：用“不良概率”或“良好概率”都行，但文案要一致 ---
 st.markdown("---")
 st.subheader("Risk Stratification")
 
-if prob >= 0.70:
+# 这里用 prob_poor 做“差结局风险”更直观
+if prob_poor < 0.30:
     st.success("### 🟢 Low Risk of Poor Outcome")
-    st.write("Predicted probability suggests a highly favorable functional prognosis (mRS 0–3).")
-elif 0.40 <= prob < 0.70:
+    st.write("Predicted probability suggests a favorable functional prognosis (mRS 0–3).")
+elif 0.30 <= prob_poor < 0.60:
     st.warning("### 🟡 Intermediate Risk")
     st.write("The prognosis is uncertain. Clinical vigilance and individualized management are recommended.")
 else:
     st.error("### 🔴 High Risk of Poor Outcome")
     st.write("Predicted probability indicates a high risk of poor functional recovery (mRS 4–6). Intensified monitoring may be warranted.")
 
-# 可视化进度条，增强直观感
-st.progress(prob)
+# 进度条：显示“差结局风险”更符合标题（Risk of Poor Outcome）
+st.progress(prob_poor)
+st.caption(f"Estimated risk of poor outcome (mRS 4–6): {prob_poor:.2%}")
+
+
 
 # ==============================
 # 模型解释 & 性能
@@ -126,3 +138,4 @@ with tab2:
         st.image("ROC_best_model.png", caption="ROC Curve")
     else:
         st.info("ROC plot not found.")
+
