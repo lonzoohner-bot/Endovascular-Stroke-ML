@@ -1,15 +1,5 @@
 streamlit
 pandas
-numpy
 joblib
-
-scikit-learn==1.7.2
-imbalanced-learn==0.14.0
-
-xgboost
-lightgbm
-catboost
-shap
-matplotlib
-
-
+numpy
+scikit-learn

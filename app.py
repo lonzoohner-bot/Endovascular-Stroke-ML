@@ -65,6 +65,7 @@ user_input = pd.DataFrame({
 # 确保特征对齐
 user_input = user_input[final_features]
 
+# ==============================
 # 预测计算（注意：你的标签定义 0=良好，1=不良）
 # ==============================
 proba = model.predict_proba(user_input)[0]
@@ -118,7 +119,6 @@ st.progress(prob_poor)
 st.caption(f"Estimated risk of poor outcome (mRS 4–6): {prob_poor:.2%}")
 
 
-
 # ==============================
 # 模型解释 & 性能
 # ==============================
@@ -138,5 +138,3 @@ with tab2:
         st.image("ROC_best_model.png", caption="ROC Curve")
     else:
         st.info("ROC plot not found.")
-
-
