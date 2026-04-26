@@ -100,7 +100,7 @@ Endovascular-Stroke-ML/
 └── LICENSE                        # License file
 The exact repository structure may vary depending on deployment requirements.
 
-##Local Installation
+## Local Installation
 
 To run the web application locally, clone this repository:
 
@@ -146,13 +146,13 @@ imbalanced-learn
 
 Please refer to requirements.txt for the complete list of dependencies and package versions.
 
-Data Availability
+## Data Availability
 
 Individual-level patient data are not publicly available because of data ownership, institutional restrictions, and privacy considerations related to the ATTENTION registry and participating centers.
 
 Data may be available from the corresponding author upon reasonable request and with permission from the ATTENTION registry steering committee and relevant participating institutions.
 
-Code Availability
+## Code Availability
 
 The source code for model development, validation, interpretability analysis, and web-based deployment is available in this repository:
 
@@ -168,11 +168,11 @@ This tool is intended for research and clinical decision-support purposes only. 
 
 It should not be used as a standalone basis for treatment decisions. Clinical judgment, institutional protocols, and multidisciplinary assessment remain essential.
 
-Privacy Statement
+## Privacy Statement
 
 The web application does not intentionally store patient-level input data. Users should avoid entering personally identifiable information into the application.
 
-Limitations
+## Limitations
 
 This model was developed using registry-based data and externally validated in an independent multicenter cohort. Although it demonstrated good discrimination and acceptable calibration, several limitations should be considered:
 
@@ -181,7 +181,7 @@ The model should not be used as a standalone treatment decision tool.
 Model performance may vary across healthcare systems, populations, imaging protocols, and EVT workflows.
 Further prospective evaluation is needed before routine clinical implementation.
 SHAP-based interpretation explains model behavior and does not establish causal relationships or actionable clinical thresholds.
-Citation
+## Citation
 
 If you use this code or web application, please cite the associated manuscript:
 
@@ -189,11 +189,11 @@ Du J, Zhao Y, Deng S, et al. An Interpretable and Externally Validated Machine L
 
 A formal citation will be added after publication.
 
-License
+## License
 
 Please refer to the LICENSE file for details.
 
-Contact
+## Contact
 
 For questions about the model, code, or data availability, please contact:
 
