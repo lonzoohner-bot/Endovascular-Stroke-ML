@@ -98,3 +98,113 @@ Endovascular-Stroke-ML/
 ├── requirements.txt               # Python dependencies
 ├── README.md                      # Project documentation
 └── LICENSE                        # License file
+The exact repository structure may vary depending on deployment requirements.
+
+##Local Installation
+
+To run the web application locally, clone this repository:
+
+git clone https://github.com/lonzoohner-bot/Endovascular-Stroke-ML.git
+cd Endovascular-Stroke-ML
+
+Create and activate a virtual environment:
+
+python -m venv venv
+source venv/bin/activate
+
+For Windows users:
+
+python -m venv venv
+venv\Scripts\activate
+
+Install the required dependencies:
+
+pip install -r requirements.txt
+
+Run the Streamlit application:
+
+streamlit run app.py
+
+The application will be available locally at:
+
+http://localhost:8501
+Requirements
+
+The main dependencies include:
+
+Python
+Streamlit
+scikit-learn
+pandas
+numpy
+matplotlib
+SHAP
+XGBoost
+LightGBM
+CatBoost
+imbalanced-learn
+
+Please refer to requirements.txt for the complete list of dependencies and package versions.
+
+Data Availability
+
+Individual-level patient data are not publicly available because of data ownership, institutional restrictions, and privacy considerations related to the ATTENTION registry and participating centers.
+
+Data may be available from the corresponding author upon reasonable request and with permission from the ATTENTION registry steering committee and relevant participating institutions.
+
+Code Availability
+
+The source code for model development, validation, interpretability analysis, and web-based deployment is available in this repository:
+
+https://github.com/lonzoohner-bot/Endovascular-Stroke-ML
+
+The deployed web-based calculator is available at:
+
+https://endovascular-stroke-ml-hqfwtqqdryxzgwzouvyhlf.streamlit.app/
+
+Intended Use
+
+This tool is intended for research and clinical decision-support purposes only. It is designed to assist individualized risk estimation and clinician–patient communication.
+
+It should not be used as a standalone basis for treatment decisions. Clinical judgment, institutional protocols, and multidisciplinary assessment remain essential.
+
+Privacy Statement
+
+The web application does not intentionally store patient-level input data. Users should avoid entering personally identifiable information into the application.
+
+Limitations
+
+This model was developed using registry-based data and externally validated in an independent multicenter cohort. Although it demonstrated good discrimination and acceptable calibration, several limitations should be considered:
+
+The model identifies prognostic associations rather than causal effects.
+The model should not be used as a standalone treatment decision tool.
+Model performance may vary across healthcare systems, populations, imaging protocols, and EVT workflows.
+Further prospective evaluation is needed before routine clinical implementation.
+SHAP-based interpretation explains model behavior and does not establish causal relationships or actionable clinical thresholds.
+Citation
+
+If you use this code or web application, please cite the associated manuscript:
+
+Du J, Zhao Y, Deng S, et al. An Interpretable and Externally Validated Machine Learning Model for Predicting 90-Day Outcomes After Endovascular Treatment in Acute Basilar Artery Occlusion.
+
+A formal citation will be added after publication.
+
+License
+
+Please refer to the LICENSE file for details.
+
+Contact
+
+For questions about the model, code, or data availability, please contact:
+
+Guodong Xiao
+Department of Neurology and Clinical Research Center of Neurological Disease
+The Second Affiliated Hospital of Soochow University
+Suzhou, Jiangsu Province, China
+Email: gdxiao@suda.edu.cn
+
+To run the web application locally, clone this repository:
+
+```bash
+git clone https://github.com/lonzoohner-bot/Endovascular-Stroke-ML.git
+cd Endovascular-Stroke-ML
